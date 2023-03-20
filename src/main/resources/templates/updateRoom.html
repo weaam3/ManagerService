@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>AirBNB - Search Results</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Helvetica+Neue" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>AirBNL</h1>
+</header>
+
+<div class="search-results">
+    <h2>New Room</h2>
+    <form th:action="@{/room/edit}" method="post">
+        <input type="hidden" name="roomId" id="roomId" th:value="${room.getId()}">
+
+
+        <label for="roomNo">Number:</label>
+        <input type="text" name="roomNo" id="roomNo" th:value="${room.getNumber()}">
+
+        <div class="form-group">
+            <label for="room-type-select">Room Type</label>
+            <select id="room-type-select" name="roomTypeId">
+                <option value="">-- Select a room type --</option>
+                <option th:each="roomType : ${roomTypes}" th:value="${roomType.getId()}"
+                        th:text="${roomType.getName()}"></option>
+            </select>
+        </div>
+
+        <label for="bedCount">Bed Count:</label>
+        <input type="text" name="bedCount" id="bedCount" th:value="${room.getBedCount()}">
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+
+<footer>
+    <p>&copy; 2023 AirBNL</p>
+</footer>
+</body>
+</html>

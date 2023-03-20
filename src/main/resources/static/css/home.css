@@ -1,0 +1,96 @@
+/* Body styles */
+body {
+    font-family: "Helvetica Neue", sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styles */
+header {
+    background-color: #f7f7f7;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+header h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    color: #ff5a5f;
+}
+
+/* Search bar styles */
+.search-bar {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.search-bar input[type="text"] {
+    width: 70%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    font-size: 18px;
+}
+
+.search-bar button[type="submit"] {
+    width: 20%;
+    background-color: #ff5a5f;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.search-bar button[type="submit"]:hover {
+    background-color: #f43f3f;
+}
+
+/* Footer styles */
+footer {
+    background-color: #f7f7f7;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+footer p {
+    font-size: 14px;
+    color: #777;
+    margin: 0;
+    padding: 0;
+}
+/* Home page */
+
+.reservation-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #fd5c63;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #d93c45;
+}
+

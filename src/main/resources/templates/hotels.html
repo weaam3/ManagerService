@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>AirBNB - Search Results</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Helvetica+Neue" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>AirBNL</h1>
+</header>
+
+<div class="search-results">
+    <h2>Search Results</h2>
+    <ul>
+        <li th:each="hotel : ${hotels}">
+            <h3 th:text="${hotel.countryName}">Country: </h3>
+            <p>Hotel Name: <span th:text="${hotel.name}"></span></p>
+            <form th:action="@{/ByHotelIdAndManagerId}" method="get">
+                <input type="hidden" th:name="hotelId" th:value="${hotel.id}" />
+                <input type="hidden" th:name="managerId" th:value="${hotel.managerId}" />
+                <button type="submit">view</button>
+            </form>
+        </li>
+    </ul>
+    <a href="/hotels/newHotel"><button> New Hotel</button></a>
+    <p></p>
+    <a href="/reservations/AllByManagerId"><button>View Reservations</button></a>
+</div>
+
+
+<footer>
+    <p>&copy; 2023 AirBNL</p>
+</footer>
+</body>
+</html>

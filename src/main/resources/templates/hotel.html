@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>AirBNB - Search Results</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Helvetica+Neue" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>AirBNL</h1>
+</header>
+
+<div class="search-results">
+    <h2>Search Results</h2>
+    <h3 th:text="${hotel.countryName}">Country: </h3>
+    <p>Hotel Name: <span th:text="${hotel.name}"></span></p>
+    <ul>
+        <li th:each="room : ${rooms}">
+            <h3 th:text="${room.number}">Room No: </h3>
+            <p>Hotel Name: <span th:text="${room.hotelId}"></span></p>
+            <p>Bed Count: <span th:text="${room.bedCount}"></span></p>
+            <p>Room Type: <span th:text="${room.typeId}"></span></p>
+            <p></p>
+            <form th:action="@{/room/editView}" method="get">
+                <input type="hidden" name="roomId" id="roomId" th:value="${room.getId()}">
+                <button type="submit">Edit Room</button>
+            </form>
+            <p></p>
+            <form th:action="@{/room/delete}" method="post">
+                <input type="hidden" name="roomId" id="roomId2" th:value="${room.getId()}">
+                <button type="submit">Delete Room</button>
+            </form>
+        </li>
+    </ul>
+    <a href="/hotels/newRoom">
+        <button> New Room</button>
+    </a>
+    <p></p>
+    <form th:action="@{/hotels/editView}" method="get">
+        <input type="hidden" name="hotelId" id="hotelId" th:value="${hotel.getId()}">
+        <button type="submit">Edit Hotel</button>
+    </form>
+    <p></p>
+    <form th:action="@{/hotels/delete}" method="post">
+        <input type="hidden" name="hotelId" id="hotelId2" th:value="${hotel.getId()}">
+        <button type="submit">Delete Hotel</button>
+    </form>
+    <p></p>
+    <form th:action="@{/reservations/AllByHotelAndManagerId}" method="get">
+        <input type="hidden" name="hotelId" id="hotelId3" th:value="${hotel.getId()}">
+        <button type="submit">View Reservations</button>
+    </form>
+</div>
+
+
+<footer>
+    <p>&copy; 2023 AirBNL</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>AirBNB - Search Results</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Helvetica+Neue" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/reservations.css}">
+</head>
+<body>
+<header>
+    <h1>AirBNL</h1>
+</header>
+
+<div class="search-results">
+    <h2>Your Reservations</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Reserver</th>
+            <th>Room Number</th>
+            <th>Cost</th>
+            <th>Check-In Date</th>
+            <th>Check-Out Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="reservation : ${reservations}">
+            <td th:text="${users.get(reservation.getId())}"></td>
+            <td th:text="${rooms.get(reservation.getId())}"></td>
+            <td th:text="${reservation.getCost()}"></td>
+            <td th:text="${reservation.getDateFrom()}"></td>
+            <td th:text="${reservation.getDateTo()}"></td>
+            <td>
+                <form th:action="@{/reservations/delete}" method="post">
+                    <input type="hidden" name="reservationId" id="reservationId" th:value="${reservation.getId()}">
+                    <button class="back-button" type="submit">Delete Reservation</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a class="back-button" href="/">Back to Home</a>
+</div>
+
+<footer>
+    <p>&copy; 2023 AirBNL</p>
+</footer>
+</body>
+</html>

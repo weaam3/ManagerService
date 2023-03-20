@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>AirBNB - Search Results</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Helvetica+Neue" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>AirBNL</h1>
+</header>
+
+<div class="search-results">
+    <h2>Search Results</h2>
+    <h3 th:text="${reservation.username}">username: </h3>
+    <h3 th:text="${reservation.roomName}">Room: </h3>
+    <p>Start Date: <span th:text="${reservation.dateFrom}"></span></p>
+    <p>End Date: <span th:text="${reservation.dateTo}"></span></p>
+    <form th:action="@{/ByReservationIdAndManagerId}" method="post">
+        <input type="hidden" th:name="reservationId" th:value="${reservation.id}" />
+        <!-- Todo add manager id from auth user -->
+        <button type="submit">view</button>
+    </form>
+</div>
+
+<footer>
+    <p>&copy; 2023 AirBNL</p>
+</footer>
+</body>
+</html>
